@@ -17,7 +17,22 @@ It also exposes:
 
 ## Quick start
 
-### 1) Create environment and install deps
+> Recommended: **Conda** (matches F5-TTS guidance and avoids many CUDA/PyTorch conflicts).
+
+### Option A (recommended) — Conda
+
+```bash
+conda create -n f5bridge python=3.10 -y
+conda activate f5bridge
+
+# Install PyTorch for your CUDA version first (example for CUDA 12.1)
+pip install torch torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Install F5-TTS + bridge deps
+pip install f5-tts flask soundfile
+```
+
+### Option B — venv (works, but may need more manual CUDA/PyTorch troubleshooting)
 
 ```bash
 python3 -m venv .venv
