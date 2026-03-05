@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# local voice assets (do not commit)
+voice.wav
+voice_ref.txt
+
+# logs / temp
+*.log
+*.tmp
