@@ -2,6 +2,12 @@
 
 Use your self-hosted F5-TTS voice as an OpenClaw TTS provider by exposing an ElevenLabs-compatible API.
 
+## Why
+
+I wanted to keep my TTS stack local (F5-TTS + my choice of voice reference) while still using OpenClaw’s existing `/tts` workflow without patching OpenClaw core.
+
+This bridge provides a compatibility layer so OpenClaw can call a self-hosted F5-TTS backend through ElevenLabs-style endpoints.
+
 ## What this does
 
 This bridge provides endpoints that OpenClaw's `messages.tts.provider = "elevenlabs"` can call:
@@ -105,9 +111,9 @@ Environment variables:
 - `F5TTS_VOICE_ID` (default `pMsXgVXv3BLzUgSXRplE`)
 - `F5TTS_VOICE_NAME` (default `F5 Custom Voice`)
 
-## Security notes
+## Runtime notes
 
-- Do not commit `voice.wav` / `voice_ref.txt`.
+- Place `voice.wav` (and optional `voice_ref.txt`) on the runtime host; these are required local assets.
 - If exposed beyond localhost/LAN, set `F5TTS_AUTH_TOKEN` and place behind a firewall/reverse proxy.
 
 ## Troubleshooting
